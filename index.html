@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Marry Me?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f9f0ff;
+        }
+
+        h1 {
+            color: #ff0077;
+            font-size: 3rem;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            margin: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #yesButton {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #noButton {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        #noButton:hover {
+            background-color: #ff6347;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Will You Marry Me? 💍</h1>
+    <button id="yesButton" onclick="yesClicked()">Yes</button>
+    <button id="noButton" onmouseover="moveNoButton()">No</button>
+
+    <script>
+        const noButton = document.getElementById("noButton");
+
+        function moveNoButton() {
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.position = "absolute";
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+
+        function yesClicked() {
+            alert("Aww, I knew you'd say yes! ❤️");
+        }
+    </script>
+</body>
+
+</html>
