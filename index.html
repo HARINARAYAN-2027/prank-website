@@ -11,6 +11,10 @@
             text-align: center;
             margin: 50px;
             background-color: #f9f0ff;
+            background-image: url('https://example.com/background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
         }
 
         h1 {
@@ -40,16 +44,24 @@
         #noButton:hover {
             background-color: #ff6347;
         }
+
+        #timer {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
 <body>
     <h1>Will You Marry Me? 💍</h1>
+    <div id="timer">10</div>
     <button id="yesButton" onclick="yesClicked()">Yes</button>
     <button id="noButton" onmouseover="moveNoButton()">No</button>
 
     <script>
         const noButton = document.getElementById("noButton");
+        const timerElement = document.getElementById("timer");
+        let timeLeft = 10;
 
         function moveNoButton() {
             const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
@@ -61,7 +73,24 @@
 
         function yesClicked() {
             alert("Aww, I knew you'd say yes! ❤️");
+            confetti();
         }
+
+        function confetti() {
+            // Add confetti animation here (using a library or custom code)
+        }
+
+        function updateTimer() {
+            if (timeLeft > 0) {
+                timeLeft--;
+                timerElement.textContent = timeLeft;
+            } else {
+                alert("Time's up!");
+                clearInterval(timerInterval);
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
     </script>
 </body>
 
